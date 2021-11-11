@@ -17,3 +17,9 @@ Live predictions?: no (extra credit - maybe?)
 
 
 **Create a branch for each team member**
+
+Roles:
+- Square: Nate
+- Triangle: Kathy
+- Circle: Urte
+- X: Sunisa
