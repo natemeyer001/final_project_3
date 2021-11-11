@@ -16,5 +16,4 @@ Machine learning model: (Classifiers vs Regressions)
 Live predictions?: probably yes
 
 
-**TASKS**
-create a branch for each team member
+**Create a branch for each team member**
