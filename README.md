@@ -1,19 +1,19 @@
 # final_project_3
 
 ## Segment 1 Deliverables
-Selected topic:
+Selected topic: Spotify Top 200
 
-Description of data source:
+Description of data source: Spotify Top 200 chart (https://www.kaggle.com/sashankpillai/spotify-top-200-charts-20202021)
 
-Question we hope to answer:
+Question we hope to answer: Can we predict the total number of weeks charted based on other characteristics?
 
-Database engine: (PostgreSQL most likely)
+Database engine: PostgreSQL
 
-Initial list of tables and columns:
+Initial list of tables and columns: all but ["Week of Highest Charting", "Weeks Charted"]
 
-Machine learning model: (Classifiers vs Regressions)
+Machine learning model: Multiple linear regression
 
-Live predictions?: probably yes
+Live predictions?: no (extra credit - maybe?)
 
 
 **Create a branch for each team member**
