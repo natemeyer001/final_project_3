@@ -1,0 +1,8 @@
+
+
+.jumbotron {
+  background-image: url("../images/spbanner.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align:center;
+}
