@@ -43,7 +43,7 @@ We will likely also run MLR with Streams as the target with the same features as
     - The most accurate model was Random Forest Regression model.  This had a 97% accuracy rate
 
 
-5)Preliminary model evaluation
+5) Preliminary model evaluation
     - Linear Regression Model - did not work well - 18%
     - Random Forest Regression Model - 98%
     - Random Forest Classifier - 100% but not sure if model correct
@@ -52,4 +52,4 @@ We will likely also run MLR with Streams as the target with the same features as
 
 BLUEPRINT:
 
-1. As of now, the interactive elements that will be used are menu buttons that will take the audience to different sections of the webpage. Sections that will be included are: about, which explains the data used, why it was used, and some information on the data as well as where it was obtained from, section/button for machine learning model, contact us section for information about the group members, and if live prediction is attempted then there will be a section/page for it as well. The dashboard which will be created using Tableau will be incorporated in the webpage as well.
+1) As of now, the interactive elements that will be used are menu buttons that will take the audience to different sections of the webpage. Sections that will be included are: about, which explains the data used, why it was used, and some information on the data as well as where it was obtained from, section/button for machine learning model, contact us section for information about the group members, and if live prediction is attempted then there will be a section/page for it as well. The dashboard which will be created using Tableau will be incorporated in the webpage as well.
