@@ -91,6 +91,8 @@ INSERT IMAGE clean_data
 
     INSERT image code artist_code
     ![artist_code](https://github.com/natemeyer001/final_project_3/blob/kathy/images/artist_code.png)
+    
+    
     INSERT image graph artist_graph
     ![artist_graph](https://github.com/natemeyer001/final_project_3/blob/kathy/images/artist_graph.png)
     - Top Streamed Genres
