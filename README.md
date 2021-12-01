@@ -81,6 +81,8 @@
 
 INSERT IMAGE clean_data
 
+![clean_data](https://github.com/natemeyer001/final_project_3/blob/kathy/images/clean_data.png)
+
 
 ### Visualize the Data
 - We will be using Tableau to show:
