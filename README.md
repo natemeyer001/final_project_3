@@ -75,6 +75,35 @@
     - Website with model graphs
     - Tableau for graph creation
 
+## Segment 2 Deliverables
+1) Pre-processsing: We loaded the data into a Jupyter notebook with Pandas' read_csv, and the displayed the head and the tail. We noticed some blanks in the columns "Genre", and "Popularity", so we droped those rows. After that we looked at the data types and saw they were mostly objects. For the analysis we need them to be numbers, so we used pd.to_numeric() to do the conversion. Lastly, we tackled the "Genre" column, which started as a list of all genres that the song belonged to. Our goal was to reduce each list to a single item, and then generalize categories to reduce the number of genres. We accomplished this by checking the list of genres for each song to see if any of the elements contained a certain sub-string, and if they did we replaced the list of genres with a single genre that best described the song. We ended up with 9 categories for the 1,470 songs in our cleaned DataFrame.
+
+
+2) Features used: To start we are going to run Mutiple Linear Regression with Number of Times Charted as the target. Our features will be: Highest Charting Position, Streams, Artist Followers, Genre, Popularity, Danceability, Energy, Loudness, Speechiness, Acousticness, Liveness, Tempo, Duration (ms), Valence, Chord.
+
+We will likely also run MLR with Streams as the target with the same features as above, except with Number of Times Charted as a feature instead of target, and Streams as only a target.
+
+
+3) How data was split: We used the scikit-learn function train_test_split() to separate the data for training and testing. We did not alter the default split percentage of 75% for training.
+
+
+4) Explanation of model choice, including benefits and limitations
+    - Originally thought we would use Multiple Linear Regression, but there didn't seem to be any linear regression between Streams and the other features.  If we were only testing Danceability, or Popularity, we could possibly use Multiple Linear Regression.  But we were determining if we could predict the number of Streams based off of the features.
+    - We found that linear regression was a terrible model for Streams
+    - The most accurate model was Random Forest Regression model.  This had a 97% accuracy rate
+
+
+5) Preliminary model evaluation
+    - Linear Regression Model - did not work well - 18%
+    - Random Forest Regression Model - 98%
+    - Random Forest Classifier - 100% but not sure if model correct
+    - Deep Neural Network Model - 0% - did not work at all
+
+
+BLUEPRINT:
+
+1) As of now, the interactive elements that will be used are menu buttons that will take the audience to different sections of the webpage. Sections that will be included are: about, which explains the data used, why it was used, and some information on the data as well as where it was obtained from, section/button for machine learning model, contact us section for information about the group members, and if live prediction is attempted then there will be a section/page for it as well. The dashboard which will be created using Tableau will be incorporated in the webpage as well.
+
 ## Segment 3 Deliverables
 ### Cleaning the Data
 - Data was primarily cleaned prior to processing, using Python and Excel. Description is listed prior.  Our feature datatypes were verified to be int64 or float64 vs. object.
@@ -187,6 +216,10 @@ The best model in this analysis is the Random Forest Regression model.  It showe
 
 
 
+
+
+
+=======
 
 
 
