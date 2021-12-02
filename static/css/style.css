@@ -1,0 +1,16 @@
+
+
+.jumbotron {
+  background-image: url("../images/spbanner.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align:center;
+}
+
+.bg-custom-1 {
+  background-color:#1ed760;
+}
+
+.bg-custom-2 {
+  background-color:black;
+}
