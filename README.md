@@ -131,8 +131,8 @@ Earlier we determined that the Linear Regression Model would most likely not wor
 
 The R2 score for the Linear Regression Model was .17
 
-INSERT image linear_regression_model
-![linear_regression_model](https://github.com/natemeyer001/final_project_3/blob/kathy/images/linear_regression_model.png)
+INSERT image liner_regression_model
+![liner_regression_model](https://github.com/natemeyer001/final_project_3/blob/kathy/images/liner_regression_model.png)
 
 #### Random Forest Regression
 This model was clearly the best performing model.  The n_estimators value was set at 50, after processing at 50, 100, 150, etc...  It was determined that there was not a significant difference in performance based on changing the value. 
