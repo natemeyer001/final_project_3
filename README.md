@@ -81,6 +81,8 @@
 
 INSERT IMAGE clean_data
 
+![clean_data](https://github.com/natemeyer001/final_project_3/blob/kathy/images/clean_data.png)
+
 
 ### Visualize the Data
 - We will be using Tableau to show:
@@ -88,29 +90,40 @@ INSERT IMAGE clean_data
     - Top Streamed Artists
 
     INSERT image code artist_code
+    ![artist_code](https://github.com/natemeyer001/final_project_3/blob/kathy/images/artist_code.png)
+    
+    
     INSERT image graph artist_graph
-
+    ![artist_graph](https://github.com/natemeyer001/final_project_3/blob/kathy/images/artist_graph.png)
+    
     - Top Streamed Genres
 
     INSERT image graph genre_graph
+    ![genre_graph](https://github.com/natemeyer001/final_project_3/blob/kathy/images/genre_graph.png)
 
     - Top Charted Songs
 
     INSERT image code songs_code
+    ![songs_code](https://github.com/natemeyer001/final_project_3/blob/kathy/images/songs_code.png)
     INSERT image graph songs_graph
-
+    ![songs_graph](https://github.com/natemeyer001/final_project_3/blob/kathy/images/songs_graph.png)
+    
 ### Preprocessing
 - Additional cleaning - drop more columns
  INSERT image pre_clean
+ ![pre_clean](https://github.com/natemeyer001/final_project_3/blob/kathy/images/pre_clean.png)
 
 - Encode Genre using LabelEncoder() - this will change values from object to a number
 INSERT image pre_encode
+![pre_encode](https://github.com/natemeyer001/final_project_3/blob/kathy/images/pre_encode.png)
 
 - Split data into Training and Testing Sets
 INSERT image pre_split
+![pre_split](https://github.com/natemeyer001/final_project_3/blob/kathy/images/pre_split.png)
 
 - Our Target is the Stream column.  The Stream column needs to be dropped from the X_train and X_test, which contains the features.
 INSERT image pre_drop
+![pre_drop](https://github.com/natemeyer001/final_project_3/blob/kathy/images/pre_drop.png)
 
 ### Model Evaluation
 #### Linear Regression
@@ -118,7 +131,8 @@ Earlier we determined that the Linear Regression Model would most likely not wor
 
 The R2 score for the Linear Regression Model was .17
 
-INSERT image linear_regression_model
+INSERT image liner_regression_model
+![liner_regression_model](https://github.com/natemeyer001/final_project_3/blob/kathy/images/liner_regression_model.png)
 
 #### Random Forest Regression
 This model was clearly the best performing model.  The n_estimators value was set at 50, after processing at 50, 100, 150, etc...  It was determined that there was not a significant difference in performance based on changing the value. 
@@ -126,25 +140,30 @@ This model was clearly the best performing model.  The n_estimators value was se
 Our output shows that the Predicted Streams and Actual Streams are quite close.  We were able to predict the number of Streams based off of the features with a pretty High accuracy.  Our R2 value was .83 showing that the regression model fit well. The closer to 1, the better.
 
 INSERT image random_forest_regression
+![random_forest_regression](https://github.com/natemeyer001/final_project_3/blob/kathy/images/random_forest_regression.png)
 
 #### Random Forest Classifier
 This model showed that it was not a good model.  It's R2 score was 0.0, showing that it did not fit well.  The output indicates better results, but since the score was bad, we did not use this model.
 
 INSERT image random_forest_class
+![random_forest_class](https://github.com/natemeyer001/final_project_3/blob/kathy/images/random_forest_class.png)
 
 #### Deep Neural Network
 This model used an Input Layer with relu activation (150 neurons) and 3 hidden layers, also using relu activation (250 neurons). 
 
 INSERT image nn_model
+![nn_model](https://github.com/natemeyer001/final_project_3/blob/kathy/images/nn_model.png)
 
 
 Checkpoints were created for callback and the model was compiled and trained.
 
 INSERT image nn_model_compile
+![nn_model_compile](https://github.com/natemeyer001/final_project_3/blob/kathy/images/nn_model_compile.png)
 
 Finally, we evaluated the model for accuracy.  The accuracy was also at 0.0 indicating that this model does not work at all on this dataset.
 
 INSERT image nn_model_evaluate
+![nn_model_evaluate](https://github.com/natemeyer001/final_project_3/blob/kathy/images/nn_model_evaluate.png)
 
 ### Model Evaluation
 The best model in this analysis is the Random Forest Regression model.  It showed the best fit at an R2 score of .82.  It also predicted a fairly accurate Streaming values, indicating that we can predict the number of streams from the features in the dataset.
