@@ -25,6 +25,7 @@
                   <a class="nav-item nav-link" href="#data">Data</a>
                   <a class="nav-item nav-link" href="#ml">Machine Learning</a>
                   <a class="nav-item nav-link" href="#viz">Visualizations</a>
+                  <a class="nav-item nav-link" href="#outro">Final Thoughts</a>
                   <a class="nav-item nav-link" href="#about">About Us</a>
                 </div>
             </div>
@@ -61,13 +62,17 @@
                     <img src="./static/images/user_icon_004.jpg" class="img-fluid" alt="Heatmap">
                 </div>
                 <div class="col-md-8">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra magna ac. Ac turpis egestas sed tempus urna et pharetra pharetra massa. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ac auctor augue mauris augue neque gravida. Risus viverra adipiscing at in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit. Purus sit amet luctus venenatis. In iaculis nunc sed augue lacus viverra vitae. Interdum velit laoreet id donec ultrices tincidunt arcu. Volutpat lacus laoreet non curabitur. Donec ac odio tempor orci dapibus ultrices in.
+                    <h4>Linear Regression</h4>
+                    <p>Our first idea was to try and predict how many times a song charted based on Spotify metrics of songs, so we started looking for simple linear relationships between the target of number times charted, and each individual feature. As shown in the image (NumCharted10AxPlot) there was not a clear linear relationship between any of the variables from the plots. So we decided that predicting streams might yield better results and started by checking their scatter plots. As the picture (Streams10AxPlot) shows, none of the plots looked particularly promising. That was supported by the correlation heatmap of all variables (CorrelationHeatMapGnBu). The highest positive correlation for Streams (besides itself) was Popularity, which had a r^2 of 0.14 that is in the middle of "None or very weak". The highest negative correlation for Streams was Highest Charting Position, with a r^2 of -0.3 that is on the edge of "very weak" and "weak".
+                    </p>
+                    <p>At this point we determined that a different type of model was needed
                     </p>
                 </div>
             </div>
             <div class="row gy-5">
                 <div class="col-md-8">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra magna ac. Ac turpis egestas sed tempus urna et pharetra pharetra massa. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ac auctor augue mauris augue neque gravida. Risus viverra adipiscing at in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit. Purus sit amet luctus venenatis. In iaculis nunc sed augue lacus viverra vitae. Interdum velit laoreet id donec ultrices tincidunt arcu. Volutpat lacus laoreet non curabitur. Donec ac odio tempor orci dapibus ultrices in.
+                    <h4>Random Forest Regression</h4>
+                    <p>Linear Regression models did not show any linear relationship between Streams and the Feature dataset. Random Forest Regression uses decision trees, averaging the sample data to improve predictive accuracy and control over-fitting. Our data was split into training and testing samples at a 75% and 25% split. The data was also cleaned by dropping more unnecessary columns and encoding the Genre category using LabelEncoder to change the values from Categories to integers. After the data was pre-processed, we ran the Random Forest Regression model using SciKit-Learn RandomForestRegressor. The number of trees in the forest (n_estimators) was set to 50. The model was also tested at 100 and 150 trees, but did not improve performance. This model showed our strongest accuracy with an R2 score of .83. This indicated that the model fit well with a score very close to 1.0. Our output also showed a strong similarity for Actual Streams and Predicted Streams. Therefore, we determined we could use this model to predict the number of Streams based on the data features.
                     </p>
                 </div>
                 <div class="col-md-4">
@@ -79,7 +84,8 @@
     <section class="viz-section bg-light text-center" id="viz">
         <div class="container-fluid">
             <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 gy-5">
+                <h3>Data Visualizations</h3>
                 <div class='tableauPlaceholder' id='viz1638632738581' style='position: relative'>
                     <noscript><a href='#'>
                         <img alt='Top 200 Songs ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sp&#47;SpotifyTop200Charts_16386325306100&#47;Top200Songs&#47;1_rss.png' style='border: none' /></a></noscript>
@@ -100,17 +106,41 @@
                             <param name='filter' value='publish=yes' />
                         </object>
                 </div>                
-                        <script type='text/javascript'>                    var divElement = document.getElementById('viz1638632738581');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                        <script type='text/javascript'>                    
+                            var divElement = document.getElementById('viz1638632738581');                    
+                            var vizElement = divElement.getElementsByTagName('object')[0];                    
+                                vizElement.style.width='1016px';vizElement.style.height='991px';                    
+                            var scriptElement = document.createElement('script');                    
+                                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
+                                vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+                        </script>
             </div>
             </div>
         </div>
-    </section>  
+    </section>
+    <section class="outro-section bg-light text-center" id="outro">
+        <div class="container-fluid">
+            <div class="row gy-5">
+                <div class="col-md-12 text-center">
+                    <h3>Final Thoughts</h3>
+                </div>
+                <div class="col-md-12">
+                <p>Our best model was able to explain over 80% of the variability in the data, which vastly outperformed the Linear Regression, but still has some room to improve. One way to improve it would be to look closer at outliers (possibly remove songs with over 3M streams) and their impact on the model. Another way is to use more advanced machine learning techniques that were outside the scope of the course. An example is hyperparameter tuning.
+                </p>
+                <p>It's worth noting that the data we used was from 4 months, and some of the values could have changed. We decided that since the Spotify metrics of a song didn't change over time (the tempo is the tempo, etc) that our data was valid to analyze. The number of streams, artist followers, and number times charted have all likely changed over the past 4 months, but still represent an accurate picture.
+                </p>
+            </div>
+            </div>
+        </div>
+    </section>
     <section class="about-section bg-custom-2 text-black" id="about">
         <div class="container-fluid">
             <div class="row ">
+                <div class="col-md-12 text-center text-white">
+                    <h3>About Us</h3>
+                </div>
                 <div class="col-md-3 text-center"><br>
                 <div class="card bg-custom-1 mx-auto" style="max-width: 18rem;">
-                    <img class="card-img-top" src="./static/images/user_icon_004.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">Kathy Bauman</h5>
                       <p class="card-text">email@email.com</p>
@@ -119,7 +149,6 @@
                 </div>
                  <div class="col-md-3 text-center"><br>
                 <div class="card bg-custom-1 mx-auto" style="max-width: 18rem;">
-                    <img class="card-img-top" src="./static/images/user_icon_004.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">Urte Melyte</h5>
                       <p class="card-text">email@email.com</p>
@@ -128,7 +157,6 @@
                 </div>  
                 <div class="col-md-3 text-center"><br>
                 <div class="card bg-custom-1 mx-auto" style="max-width: 18rem;">
-                    <img class="card-img-top" src="./static/images/user_icon_004.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">Nate Meyer</h5>
                       <p class="card-text">email@email.com</p>
@@ -137,7 +165,6 @@
                 </div>
                 <div class="col-md-3 text-center"><br>
                 <div class="card bg-custom-1 mx-auto" style="max-width: 18rem;">
-                    <img class="card-img-top" src="./static/images/user_icon_004.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">Sunisa Pradhan</h5>
                       <p class="card-text">email@email.com</p>
