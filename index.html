@@ -40,7 +40,9 @@
                     <h3>Spotify Dataset</h3>
                 </div>
                 <div class="col-md-12">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Turpis egestas pretium aenean pharetra magna ac. Ac turpis egestas sed tempus urna et pharetra pharetra massa. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus. Ac auctor augue mauris augue neque gravida. Risus viverra adipiscing at in. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit. Purus sit amet luctus venenatis. In iaculis nunc sed augue lacus viverra vitae. Interdum velit laoreet id donec ultrices tincidunt arcu. Volutpat lacus laoreet non curabitur. Donec ac odio tempor orci dapibus ultrices in.
+                <p>The data contains a list of the songs that have reached the Spotify Top 200 Weekly (Global) Chart in 2020 and 2021. Included in the data are metrics regarding how popular, danceable, loud, etc the songs are as well as the artist and genre.
+                </p>
+                <p>We loaded the data into a Jupyter notebook with Pandas' read_csv, and the displayed the head and the tail. We noticed some blanks in the columns "Genre", and "Popularity", so we droped those rows. After that we looked at the data types and saw they were mostly objects. For the analysis we need them to be numbers, so we used pd.to_numeric() to do the conversion. Lastly, we tackled the "Genre" column, which started as a list of all genres that the song belonged to. Our goal was to reduce each list to a single item, and then generalize categories to reduce the number of genres. We accomplished this by checking the list of genres for each song to see if any of the elements contained a certain sub-string, and if they did we replaced the list of genres with a single genre that best described the song. We ended up with 9 categories for the 1,470 songs in our cleaned DataFrame.
                 </p>
             </div>
             </div>
@@ -78,7 +80,27 @@
         <div class="container-fluid">
             <div class="row">
             <div class="col-md-12">
-                <h3>Tableau Dashboard Here</h3>
+                <div class='tableauPlaceholder' id='viz1638632738581' style='position: relative'>
+                    <noscript><a href='#'>
+                        <img alt='Top 200 Songs ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sp&#47;SpotifyTop200Charts_16386325306100&#47;Top200Songs&#47;1_rss.png' style='border: none' /></a></noscript>
+                        <object class='tableauViz'  style='display:none;'>
+                            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                            <param name='embed_code_version' value='3' /> 
+                            <param name='site_root' value='' />
+                            <param name='name' value='SpotifyTop200Charts_16386325306100&#47;Top200Songs' />
+                            <param name='tabs' value='no' />
+                            <param name='toolbar' value='yes' />
+                            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sp&#47;SpotifyTop200Charts_16386325306100&#47;Top200Songs&#47;1.png' /> 
+                            <param name='animate_transition' value='yes' />
+                            <param name='display_static_image' value='yes' />
+                            <param name='display_spinner' value='yes' />
+                            <param name='display_overlay' value='yes' />
+                            <param name='display_count' value='yes' />
+                            <param name='language' value='en-US' />
+                            <param name='filter' value='publish=yes' />
+                        </object>
+                </div>                
+                        <script type='text/javascript'>                    var divElement = document.getElementById('viz1638632738581');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
             </div>
             </div>
         </div>
