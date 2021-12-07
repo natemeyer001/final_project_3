@@ -23,7 +23,14 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <div class="navbar-nav">
                   <a class="nav-item nav-link" href="#data">Data</a>
-                  <a class="nav-item nav-link" href="#ml">Machine Learning</a>
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Machine Learning
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#ml">Heatmap</a>
+                    <a class="dropdown-item" href="#lr">Linear Regression</a>
+                    <a class="dropdown-item" href="#rfr">Random Forest Regression</a>
+                  </div>
                   <a class="nav-item nav-link" href="#viz">Visualizations</a>
                   <a class="nav-item nav-link" href="#outro">Final Thoughts</a>
                   <a class="nav-item nav-link" href="#about">About Us</a>
@@ -31,7 +38,7 @@
             </div>
         </nav>
     </div>
-    <div class="jumbotron">
+    <div class="jumbotron shadow">
         <h1 class="display-4"></h1>
     </div>
     <section class="data-section bg-light text-center" id="data">
@@ -41,9 +48,9 @@
                     <h3>Spotify Dataset</h3>
                 </div>
                 <div class="col-md-12">
-                <p>The data contains a list of the songs that have reached the Spotify Top 200 Weekly (Global) Chart in 2020 and 2021. Included in the data are metrics regarding how popular, danceable, loud, etc the songs are as well as the artist and genre.
+                <p>The data contains a list of the songs that have reached the Spotify Top 200 Weekly (Global) Chart in 2020 and 2021. Included in the data are metrics regarding how popular, danceable, loud, etc the songs are as well as the artist and genre. We cleaned the data to remove songs with blanks and summarized the genres into a single general category. Once completed we ended up with 9 categories for the 1,470 songs in our cleaned DataFrame.
                 </p>
-                <p>We loaded the data into a Jupyter notebook with Pandas' read_csv, and the displayed the head and the tail. We noticed some blanks in the columns "Genre", and "Popularity", so we droped those rows. After that we looked at the data types and saw they were mostly objects. For the analysis we need them to be numbers, so we used pd.to_numeric() to do the conversion. Lastly, we tackled the "Genre" column, which started as a list of all genres that the song belonged to. Our goal was to reduce each list to a single item, and then generalize categories to reduce the number of genres. We accomplished this by checking the list of genres for each song to see if any of the elements contained a certain sub-string, and if they did we replaced the list of genres with a single genre that best described the song. We ended up with 9 categories for the 1,470 songs in our cleaned DataFrame.
+                <p>With this data, we want to see if a song’s metrics (popularity, danceability, etc) can predict the number of times the song charted or the number of streams.
                 </p>
             </div>
             </div>
@@ -54,29 +61,29 @@
             <div class="row gy-5">
                 <div class="col-md-12 text-center">
                     <h3>Machine Learning</h3>
-                    <img src="./images/CorrelationHeatMapPopFilterGnBu.jpeg" class="img-fluid" alt="...">
+                    <img src="./images/CorrelationHeatMapPopFilterGnBu.jpeg" class="img-fluid shadow" alt="...">
                 </div>
             </div>
-            <div class="row gy-5">
+            <div class="row gy-5" id="lr">
                 <div class="col-md-12">
                     <h4>Linear Regression</h4>
-                    <p>Our first idea was to try and predict how many times a song charted based on Spotify metrics of songs, so we started looking for simple linear relationships between the target of number times charted, and each individual feature. As shown in the image "Number of Times Charted" graphs, there was not a clear linear relationship between any of the variables from the plots. So we decided that predicting streams might yield better results and started by checking their scatter plots. As the "Streams" plots show, none of the plots looked particularly promising. That was supported by the correlation heatmap of all variables, above. The highest positive correlation for Streams (besides itself) was Popularity, which had a r^2 of 0.14 that is in the middle of "None or very weak". The highest negative correlation for Streams was Highest Charting Position, with a r^2 of -0.3 that is on the edge of "very weak" and "weak".
+                    <p>Our first idea was to try and predict how many times a song charted based on Spotify metrics of songs, so we started looking for simple linear relationships between the number times charted, and each individual feature. As shown in the image "Number of Times Charted" graphs, there was not a clear linear relationship between any of the variables from the plots. So we decided that predicting streams might yield better results and started by checking their scatter plots. As the "Streams" plots show, none of the plots looked particularly promising. That was supported by the correlation heatmap of all variables, above. The highest positive correlation for Streams (besides itself) was Popularity, which had a r^2 of 0.14 that is in the middle of "None or very weak". The highest negative correlation for Streams was Highest Charting Position, with a r^2 of -0.3 that is on the edge of "very weak" and "weak".
                     </p>
-                    <p>At this point we determined that a different type of model was needed
+                    <p>At this point we determined that a different type of model was needed.
                     </p>
                 </div>
             </div>
             <div class="row gy-5">
                 <div class="col-md-6 text-center">
                     <p><b>Number of Times Charted</b></p>
-                    <img src="./images/NumCharted10AxPlot.jpeg" class="img-fluid" alt="NumCharted10AxPlot">
+                    <img src="./images/NumCharted10AxPlot.jpeg" class="img-fluid shadow" alt="NumCharted10AxPlot">
                 </div>
                 <div class="col-md-6 text-center">
                     <p><b>Streams</b></p>
-                    <img src="./images/Streams10AxPlot.jpeg" class="img-fluid" alt="StreamsPlot">
+                    <img src="./images/Streams10AxPlot.jpeg" class="img-fluid shadow" alt="StreamsPlot">
                 </div>
             </div>
-            <div class="row gy-5">
+            <div class="row gy-5" id="rfr">
                 <div class="col-md-8">
                     <h4>Random Forest Regression</h4>
                     <p>Linear Regression models did not show any linear relationship between Streams and the Feature dataset. Random Forest Regression uses decision trees, averaging the sample data to improve predictive accuracy and control over-fitting. Our data was split into training and testing samples at a 75% and 25% split. The data was also cleaned by dropping more unnecessary columns and encoding the Genre category using LabelEncoder to change the values from Categories to integers. After the data was pre-processed, we ran the Random Forest Regression model using SciKit-Learn RandomForestRegressor. The number of trees in the forest (n_estimators) was set to 50. The model was also tested at 100 and 150 trees, but did not improve performance. This model showed our strongest accuracy with an R2 score of .83. This indicated that the model fit well with a score very close to 1.0. Our output also showed a strong similarity for Actual Streams and Predicted Streams. Therefore, we determined we could use this model to predict the number of Streams based on the data features.
@@ -85,8 +92,8 @@
                 <div class="col-md-4">
                     <div class="container d-flex h-100">
                         <div class="row justify-content-center align-self-center">
-                            <p><b>Random Forest Regression Output</b></p>
-                            <img src="./images/random_forest_output.png" class="img-fluid" alt="...">
+                            <h6><b>Random Forest Regression Output</b></h6>
+                            <img src="./images/random_forest_output.png" class="img-fluid shadow" alt="...">
                         </div>
                     </div>
                 </div>
@@ -98,7 +105,7 @@
             <div class="row">
             <div class="col-md-12 gy-5">
                 <h3>Data Visualizations</h3>
-                <div class='tableauPlaceholder' id='viz1638651311539' style='position: relative'>
+                <div class='tableauPlaceholder shadow' id='viz1638651311539' style='position: relative'>
                     <noscript>
                     <a href='#'>
                         <img alt='Spotify Top 200 Chart ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Sp&#47;SpotifyTop200Charts_16386325306100&#47;Top200Songs&#47;1_rss.png' style='border: none' />
