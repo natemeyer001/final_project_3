@@ -54,4 +54,4 @@ The best model in this analysis is the Random Forest Regression model.  It showe
 ## Dashboard Overview
 The dashboard can be found [here](https://natemeyer001.github.io/final_project_3/)
 
-It includes a tab for .....
+It includes links for Machine Learning, Visualization, Final Thoughts, and About Us. The page walks through our process of the project.
